@@ -29,7 +29,7 @@ typedef struct {
     int lastCPU;
     int sched_type;
     int sleep_avg;
-    struct timeval last_time_used;
+    struct timeval last_time_used,turnaround_time;
 } task_struct;
 
 typedef struct {
