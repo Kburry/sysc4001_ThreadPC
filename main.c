@@ -173,6 +173,11 @@ int check_queue(queue_struct *ready_q, int id, int rqlevel) {
         }
         else {
             // Decrement sleep_avg (the "bonus")
+            printf("Process: %d with Priority-%d BLOCKED in CPU %d from Queue RQ%d\n\n",
+	            task->pid,
+	            task->sched_type,
+	            id,
+	            rqlevel);
 	        if(task->sched_type == SCHED_NORMAL){
                 ticks = calculate_ticks(t1, t2);
                 task->sleep_avg = max(task->sleep_avg - ticks, 0);
