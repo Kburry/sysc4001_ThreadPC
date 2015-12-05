@@ -132,7 +132,7 @@ int check_queue(queue_struct *ready_q, int id, int rqlevel) {
         
         // Increment sleep_avg (bonus)
 	    if(task->sched_type == SCHED_NORMAL){
-            ticks = calculate_ticks(task->last_time_used, t2);
+            ticks = calculate_ticks(task->last_time_used, t2)*3;//  Multiply by 3 for I/O operation.
             task->sleep_avg = min(task->sleep_avg + ticks, MAX_SLEEP_AVG);
             task->dynamic_priority = calculate_dp(task->dynamic_priority, task->sleep_avg);
 		    task->time_slice = calculate_time_slice(task->dynamic_priority);
@@ -357,6 +357,7 @@ int calculate_time_slice(int sp) {
 
 /**
  * Calculate the ticks, which is used for the sleep_avg
+ * Times 3 for I/O operation.
  */
 int calculate_ticks(struct timeval t1, struct timeval t2) {
     int time1 = (t1.tv_sec*MILLI_SEC_IN_SEC) + (t1.tv_usec/1000);
