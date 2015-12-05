@@ -1,12 +1,9 @@
-The following program was created for Carleton University's SYSC 4001 Operating Systems course (Fall 2015).
-It was written by Reid Cain-Mondoux and Noah Segal via peer programming.
-This program emulates a CPU with a number of threads/processes. Each process has a priority level. The CPU is responsible
+The following program was created for Carleton University's SYSC 4001 Operating Systems course (Fall 2015). It was written by Reid Cain-Mondoux and Noah Segal via peer programming. This program emulates a CPU with a number of threads/processes. Each process has a priority level. The CPU is responsible
 for scheduling the processes so that they complete in a reasonable amount of time (based off of their priority level).
 
 Reid Cain-Mondoux: 100945700  Noah Segal: 100911661
 
 Supported Platform: Fedora (tested on CB-5109 Lab Computers)
-
 
 This program must be run via a Unix Terminal*:
 
@@ -23,9 +20,16 @@ This program must be run via a Unix Terminal*:
 
 1.4 Enjoy your Winter Break!
 
-*NOTE: If you want a less verbose version, please comment out line #136 in main.c
-      This line was added as it was a requirement from the Professor. However, it produces a terribly
-      large amount of output.
+*NOTE: If you want a less verbose version, please comment out lines #142-146 in main.c
+	This line was added as it was a requirement from the Professor.
+	However, it produces a terriblylarge amount of output.
+	
+	Code to Comment: printf("Process: %d with Priority-%d SELECTED in CPU %d from Queue RQ%d\n\n",
+ 			 	task->pid,
+ 			        task->sched_type,
+ 			        id,
+ 			        rqlevel);
+	
 
 
 
